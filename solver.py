@@ -7,6 +7,7 @@ class Solver():
     finding a sudoku solution
     """
     f = None
+    tries = 0
     def __init__(self, f):
         self.f = f
 
@@ -14,6 +15,7 @@ class Solver():
         return(self.mySolve( self.f))
 
     def mySolve(self, f : Feld):
+        self.tries += 1
         """
         find next empty element, copy f and insert all values
         """
