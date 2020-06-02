@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 from feld import *
 from solver import *
+import time
 
 def runSimple1():
     f = Feld()
@@ -82,13 +83,47 @@ def runHard1():
     f.setElem(8,1,6)
     f.setElem(8,4,8)
     print(f)
-
     s = Solver(f)
     print(s.solve())
+    print(s.tries)
+
+def runExtreme1():
+    f = Feld()
+    f.setElem(0,0,5)
+    f.setElem(0,8,9)
+    f.setElem(1,2,3)
+    f.setElem(1,5,2)
+    f.setElem(1,7,1)
+    f.setElem(2,4,9)
+    f.setElem(2,6,4)
+    f.setElem(3,4,4)
+    f.setElem(3,8,8)
+    f.setElem(4,1,6)
+    f.setElem(4,7,3)
+    f.setElem(5,0,8)
+    f.setElem(5,1,7)
+    f.setElem(5,6,5)
+    f.setElem(6,0,7)
+    f.setElem(6,4,8)
+    f.setElem(6,6,9)
+    f.setElem(7,1,3)
+    f.setElem(7,5,6)
+    f.setElem(8,1,5)
+    f.setElem(8,3,1)
+    f.setElem(8,7,2)
+    print(f)
+
+    s = Solver(f)
+    tStart = time.time()
+    res = s.solve()
+    tEnd = time.time()
+    print(res)
+    print(tEnd - tStart)
 
 def main():
 #    runSimple1()
-    runHard1()
+    # runHard1()
+   runExtreme1()
 
 if __name__ == "__main__":
     main()
